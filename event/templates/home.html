@@ -1,0 +1,30 @@
+{% extends 'base.html' %}{% block body %}
+
+<div class="container">
+
+    {% if userdetail.user_type is 1 %}
+    <h1>Home Page</h1>
+
+    {% endif %}
+    {% if userdetail.user_type is 2 %}
+
+    <h2>Your Places</h2>
+    {% for place in places %}
+
+    {{place.place_name}}
+    {{place.place_price}}
+
+    {{place.place_owner}}
+
+    {% endfor %}
+    {% endif %}
+    {% if userdetail.user_type is 3 %}
+    <h2>Your Services</h2>
+    {% for service in services %}
+    {{service.service_name}}
+    {{service.service_owner}}
+    {{service.service_price}}
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

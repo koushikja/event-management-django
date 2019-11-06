@@ -1,0 +1,40 @@
+{% extends 'base.html' %}{% block body %}
+
+<div class="container">
+    <br>
+    <form action="/signup/" class="form-group" method="POST">
+        {% csrf_token %}
+        <div class="jumbotron col-md-6 ml-auto mr-auto">
+            <h4 style="text-align: center">SignUp</h4>
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter Username" class="form-control"
+                style="border: solid lightgrey 1px">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter your email" class="form-control"
+                style="border: solid lightgrey 1px">
+
+            <label for="user_address">Address</label>
+            <textarea name="user_address" id="" cols="30" rows="5" placeholder="Enter address" class="form-control"
+                style="border: solid lightgrey 1px"></textarea>
+
+            <label for="user_phone">Phone No</label>
+            <input type="text" name="user_phone" class="form-control" style="border: solid lightgrey 1px">
+            <label for="user_type">You are?</label>
+            <select name="user_type" class="form-control" style="border: solid lightgrey 1px">
+                <option value="1">user</option>
+                <option value="2">place</option>
+                <option value="3">service</option>
+            </select>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" style="border: solid lightgrey 1px">
+            <br>
+
+            <button type="submit" class="btn btn-md btn-primary">SIGN UP </button>
+
+        </div>
+    </form>
+</div>
+
+{% endblock %}

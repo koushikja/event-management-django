@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% block body %}
+
+<div class="container">
+
+    <form class="form-group" action="/login/" method="POST">
+        {% csrf_token %}
+        <br>
+        <div class="jumbotron col-md-4 ml-auto mr-auto">
+            <h4 style="text-align: center">Login</h4>
+            <label for="username"><b>Username</b></label>
+            <input class="form-control" type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+            <br>
+            <button class="btn btn-md btn-primary" type="submit">Login</button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}

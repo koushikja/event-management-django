@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+
+   
+    <br>
+    <form action="/createservice/{{userinfo.id}}/" class="form-group" method="POST">
+        {% csrf_token %}
+        <div class="jumbotron col-md-6 ml-auto mr-auto">
+            <h4 style="text-align: center">Create Service</h4>
+            <label for="service_name">Service Name</label>
+            <input type="text" name="service_name" placeholder="Enter Service Name" class="form-control"
+                style="border: solid lightgrey 1px">
+
+            <label for="service_description">Description</label>
+            <textarea name="service_description" id="" cols="30" rows="5" placeholder="Enter Description" class="form-control"
+                style="border: solid lightgrey 1px"></textarea>
+
+
+            <label for="service_price">Service Price</label>
+            <input type="text" name="service_price" class="form-control" style="border: solid lightgrey 1px">
+            
+            <label for="service_image">Upload Image</label>
+            <input type="file" accept="image/*" name="service_image" class="form-control" style="border: solid lightgrey 1px">
+            <br>
+
+            <button type="submit" class="btn btn-md btn-primary">Create </button>
+
+        </div>
+    </form>
+
+</div>
+{% endblock %}
+<!-- service_name=models.CharField(max_length=20)
+service_description=models.TextField()
+service_price=models.IntegerField(default=0)
+service_owner=models.ForeignKey(User,on_delete=models.CASCADE) -->

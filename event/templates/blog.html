@@ -1,0 +1,39 @@
+{% extends 'base.html' %}{% block body %}
+<style>
+    .card {
+        max-height: 100%;
+        width: 300px;
+        /* border: 1px solid black; */
+        background: lightgrey;
+        margin-top: 20px;
+        border-radius: 5px;
+        padding: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+<div class="container">
+    <br>
+    <div class="container" style="display: flex;justify-content: space-between">
+        <h1>Blog</h1>
+        <a href="/createblog/{{userinfo.id}}/"><button class="btn btn-sm btn-success">Write a Blog</button></a>
+    </div>
+    <br>
+    {% for blogs in blog %}
+    <div style="display: inline-flex; justify-content: space-between">
+        <div class="card">
+            <div class="cardtitle">
+                <h6>Created by {{blogs.user}}</h6>
+            </div>
+            <hr>
+            <div class="cardtitle">
+                <h4> {{blogs.blog_title}}</h4>
+            </div>
+            <hr>
+            <div class="cardcontent">
+                <h6>{{blogs.blog_content}}</h6>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

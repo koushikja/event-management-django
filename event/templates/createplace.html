@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+
+   
+    <br>
+    <form action="/createplace/{{userinfo.id}}/" class="form-group" method="POST">
+        {% csrf_token %}
+        <div class="jumbotron col-md-6 ml-auto mr-auto">
+            <h4 style="text-align: center">Create Place</h4>
+            <label for="place_name">Place Name</label>
+            <input type="text" name="place_name" placeholder="Enter Place Name" class="form-control"
+                style="border: solid lightgrey 1px">
+
+            <label for="place_address">Address</label>
+            <textarea name="place_address" id="" cols="30" rows="5" placeholder="Enter address" class="form-control"
+                style="border: solid lightgrey 1px"></textarea>
+
+            <label for="place_description">Description</label>
+            <textarea name="place_description" id="" cols="30" rows="5" placeholder="Enter Description" class="form-control"
+                style="border: solid lightgrey 1px"></textarea>
+
+
+            <label for="place_price">Place Price</label>
+            <input type="text" name="place_price" class="form-control" style="border: solid lightgrey 1px">
+            
+            <label for="place_image">Upload Image</label>
+            <input type="file" accept="image/*" name="place_image" class="form-control" style="border: solid lightgrey 1px">
+            <br>
+
+            <button type="submit" class="btn btn-md btn-primary">Create </button>
+
+        </div>
+    </form>
+
+</div>
+{% endblock %}
+<!-- place_name=models.CharField(max_length=30)
+    place_address=models.TextField()
+    place_owner= models.ForeignKey('UserDetail',on_delete=models.CASCADE,limit_choices_to={'user_type': '2'})
+    place_description=models.TextField()
+    place_price=models.IntegerField(default=0)
+    place_image = models.ImageField(null=True, blank=True, upload_to="projects-images/") -->
